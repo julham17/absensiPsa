@@ -713,7 +713,7 @@ appDataRouter.post('/daily-reports', authenticateToken, async (req: Authenticate
     } else {
       await pool.query(
         `INSERT INTO daily_reports (id,trainee_id,trainee_name,trainee_nim,trainee_avatar,kejuruan_id,kejuruan_name,report_date,description,photo_url,photo_name,submission_link,status,submitted_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?, 'pending',?)`,
-        [String(report.id || randomUUID()), user.id, user.name, user.nim || '', user.avatar || null, user.kejuruanId || null, user.kejuruanName || null, reportDate, description, report.photoUrl || null, report.photoName || null, report.submissionLink || null, dateTimeValue(submittedAt)]
+        [String(report.id || randomUUID()), user.id, user.name, user.nim || '', ('avatar' in user ? user.avatar : null) || null, user.kejuruanId || null, user.kejuruanName || null, reportDate, description, report.photoUrl || null, report.photoName || null, report.submissionLink || null, dateTimeValue(submittedAt)]
       );
     }
     const [savedRows] = await pool.query<any[]>(

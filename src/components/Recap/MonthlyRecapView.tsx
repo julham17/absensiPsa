@@ -399,6 +399,8 @@ export const MonthlyRecapView: React.FC = () => {
                 <th className="py-3 px-3 text-center text-[#4C83B5] font-bold w-16">Izin</th>
                 <th className="py-3 px-3 text-center text-[#4C83B5] font-bold w-16">Sakit</th>
                 <th className="py-3 px-3 text-center text-[#B84469] font-bold w-16">Alpha</th>
+                <th className="py-3 px-3 min-w-[140px] text-right font-bold">Status</th>
+                <th className="py-3 px-3 min-w-[140px] text-right font-bold">Angkatan</th>
                 <th className="py-3 px-3 min-w-[140px] text-right font-bold">Kehadiran (%)</th>
                 {selectedDayNumber && (
                   <th className="py-3 px-3 text-center bg-[#EAF2F8] text-[#28618F] font-bold min-w-[100px]">
@@ -406,7 +408,7 @@ export const MonthlyRecapView: React.FC = () => {
                   </th>
                 )}
                 <th className="py-3 px-3 w-28 text-center">Detail Hari</th>
-              </tr>
+              </tr>~
             </thead>
             <tbody className="divide-y divide-[#E4EAF0]">
               {filteredSummaries.length === 0 ? (
